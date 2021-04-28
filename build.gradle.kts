@@ -65,7 +65,6 @@ allprojects {
         jcenter {
             content {
                 onlyForConfigurations(
-//                    "detekt",
                     "dokkaJavadocPlugin",
                     "dokkaJavadocRuntime",
                     "dokkaRuntime",
@@ -81,6 +80,13 @@ allprojects {
             content {
                 includeGroup("no.tornado")
             }
+        }
+    }
+
+    // Works around https://github.com/detekt/detekt/issues/3712. Remove as soon as it is solved.
+    configurations.detekt {
+        resolutionStrategy {
+            force("org.jetbrains.kotlinx:kotlinx-html-jvm:0.7.3")
         }
     }
 
@@ -184,7 +190,7 @@ allprojects {
         buildUponDefaultConfig = true
         config = files("${rootProject.projectDir}/config/detekt/detekt.yml")
         reports {
-            html.enabled = true
+            html.enabled = false
         }
     }
 
