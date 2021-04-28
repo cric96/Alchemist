@@ -65,9 +65,6 @@ allprojects {
         jcenter {
             content {
                 onlyForConfigurations(
-                    "dokkaJavadocPlugin",
-                    "dokkaJavadocRuntime",
-                    "dokkaRuntime",
                     "orchidCompileClasspath",
                     "orchidRuntimeClasspath"
                 )
